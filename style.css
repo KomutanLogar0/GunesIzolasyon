@@ -1,0 +1,648 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #222;
+    background: #ffffff;
+    line-height: 1.6;
+}
+
+/* =========================
+NAVBAR
+========================= */
+
+header {
+    height: 78px;
+    position: sticky;
+top: 0;
+z-index: 1000;                                                                      
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+    
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+nav {
+    display: flex;
+    gap: 32px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #222;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #d99b00;
+}
+
+/* =========================
+ANA SAYFA
+========================= */
+
+.hero {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    padding: 90px 7%;
+    background-image: url("images/arka-plan.png.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-content {
+    max-width: 760px;
+    position: relative;
+    z-index: 2;
+}
+
+.ust-yazi {
+    color: #d99b00;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    color: #ffffff;
+    font-size: 64px;
+    line-height: 1.08;
+    margin-bottom: 25px;
+    letter-spacing: -1.5px;
+}
+
+.aciklama {
+    font-size: 19px;
+    color: #ffffff;
+    max-width: 620px;
+    margin-bottom: 35px;
+}
+
+/* =========================
+BUTON
+========================= */
+
+.buton {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #d99b00;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.buton:hover {
+    background: #b98100;
+    transform: translateY(-2px);
+}
+
+/* =========================
+HİZMETLER
+========================= */
+
+.hizmetler {
+    padding: 110px 7%;
+    text-align: center;
+}
+
+.hizmetler h2,
+.islerimiz h2,
+.iletisim h2 {
+    font-size: 44px;
+    line-height: 1.2;
+    margin-bottom: 50px;
+}
+
+.hizmet-kartlari {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.kart {
+    padding: 35px 28px;
+    background: #f7f7f7;
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.kart:hover {
+    transform: translateY(-5px);
+    border-color: #d99b00;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.kart h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.kart p {
+    color: #666;
+    font-size: 15px;
+}
+
+.hizmet-aciklama {
+    max-width: 900px;
+    margin: 45px auto 55px;
+    text-align: center;
+}
+
+
+.hizmet-aciklama p {
+    color: #222;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+/* =========================
+İŞLERİMİZ
+========================= */
+
+.islerimiz {
+    padding: 110px 7%;
+    text-align: center;
+    background: #f5f5f5;
+}
+
+.islerimiz > p:last-child {
+    color: #666;
+}
+
+/* =========================
+FOTOĞRAF GALERİSİ
+========================= */
+
+.galeri {
+    max-width: 1200px;
+    margin: 50px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.galeri img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.galeri img:hover {
+    transform: scale(1.03);
+}
+
+/* =========================
+İLETİŞİM
+========================= */
+
+.iletisim {
+    padding: 110px 7%;
+    text-align: center;
+}
+
+.iletisim > p {
+    max-width: 650px;
+    margin: 0 auto 35px;
+    color: #666;
+}
+
+.iletisim-bilgileri {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.iletisim-bilgileri p {
+    margin: 0;
+    padding: 25px;
+    background: #f7f7f7;
+    border-radius: 8px;
+    color: #555;
+}
+
+.iletisim-bilgileri strong {
+    display: block;
+    color: #222;
+    margin-bottom: 8px;
+}
+
+.iletisim-bilgileri a {
+    color: #d99b00;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer {
+    padding: 30px;
+    text-align: center;
+    background: #222;
+    color: #ffffff;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+/* =========================
+FOTOĞRAF BÜYÜTME
+========================= */
+
+.foto-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 99999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.foto-modal .buyuk-foto {
+    max-width: 55vw;
+    max-height: 55vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.foto-kapat {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #ffffff;
+    font-size: 45px;
+    font-weight: 300;
+    cursor: pointer;
+    z-index: 100000;
+}
+
+/* =========================
+TELEFON / TABLET
+========================= */
+
+@media (max-width: 1000px) {
+
+    .hizmet-kartlari {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero h1 {
+        font-size: 54px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    header {
+        height: auto;
+        min-height: 70px;
+        padding: 18px 5%;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .hero {
+        padding: 80px 5%;
+        min-height: 550px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .aciklama {
+        font-size: 17px;
+    }
+
+    .hizmetler,
+    .islerimiz,
+    .iletisim {
+        padding: 80px 5%;
+    }
+
+    .hizmetler h2,
+    .islerimiz h2,
+    .iletisim h2 {
+        font-size: 36px;
+    }
+
+    .hizmet-kartlari {
+        grid-template-columns: 1fr;
+    }
+
+    .iletisim-bilgileri {
+        grid-template-columns: 1fr;
+    }
+
+    .galeri {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .galeri img {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .ust-yazi {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .buton {
+        width: 100%;
+        text-align: center;
+    }
+}.foto-modal img#buyuk-foto {
+    width: auto !important;
+    height: auto !important;
+    max-width: 75vw !important;
+    max-height: 75vh !important;
+    object-fit: contain !important;
+}.neden-biz {
+    padding: 100px 7%;
+    text-align: center;
+    background: #f5f5f5;
+}
+
+.neden-biz h2 {
+    font-size: 44px;
+    line-height: 1.2;
+    margin-bottom: 55px;
+}
+
+.neden-kartlari {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    text-align: left;
+}
+
+.neden-kart {
+    padding: 30px 35px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.neden-kart:nth-child(odd) {
+    border-right: 1px solid #dddddd;
+}
+
+.neden-kart h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.neden-kart p {
+    font-size: 17px;
+    color: #666;
+    line-height: 1.7;
+}
+
+/* MOBİL */
+
+@media (max-width: 768px) {
+
+    .neden-biz {
+        padding: 80px 5%;
+    }
+
+    .neden-biz h2 {
+        font-size: 36px;
+        margin-bottom: 35px;
+    }
+
+    .neden-kartlari {
+        grid-template-columns: 1fr;
+    }
+
+    .neden-kart {
+        padding: 25px 10px;
+        border-right: none !important;
+    }
+
+    .neden-kart:last-child {
+        border-bottom: none;
+    }
+}.alanlar {
+    padding: 100px 7%;
+    text-align: center;
+    background: #ffffff;
+}
+
+.alanlar h2 {
+    font-size: 44px;
+    line-height: 1.2;
+    margin-bottom: 55px;
+}
+
+.alan-listesi {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: left;
+}
+
+.alan {
+    padding: 28px 35px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.alan:nth-child(odd) {
+    border-right: 1px solid #dddddd;
+}
+
+.alan h3 {
+    font-size: 21px;
+    color: #222;
+    font-weight: 600;
+}
+
+/* MOBİL */
+
+@media (max-width: 768px) {
+
+    .alanlar {
+        padding: 80px 5%;
+    }
+
+    .alanlar h2 {
+        font-size: 36px;
+        margin-bottom: 35px;
+    }
+
+    .alan-listesi {
+        grid-template-columns: 1fr;
+    }
+
+    .alan {
+        padding: 25px 10px;
+        border-right: none !important;
+    }
+
+    .alan:last-child {
+        border-bottom: none;
+    }
+}.whatsapp-sabit {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    padding: 14px 22px;
+    background: #25D366;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    transition: 0.3s;
+}
+
+.whatsapp-sabit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* MOBİL */
+
+@media (max-width: 768px) {
+
+    .whatsapp-sabit {
+        right: 15px;
+        bottom: 15px;
+        padding: 12px 18px;
+        font-size: 14px;
+    }
+
+}.teklif {
+    padding: 90px 7%;
+    text-align: center;
+    background: #222;
+    color: #ffffff;
+}
+
+.teklif .ust-yazi {
+    margin-bottom: 15px;
+}
+
+.teklif h2 {
+    max-width: 800px;
+    margin: 0 auto 20px;
+    font-size: 42px;
+    line-height: 1.2;
+}
+
+.teklif > p:not(.ust-yazi) {
+    max-width: 650px;
+    margin: 0 auto 30px;
+    color: #cccccc;
+    font-size: 17px;
+}
+
+.teklif .buton {
+    margin-top: 5px;
+}
+
+/* MOBİL */
+
+@media (max-width: 768px) {
+
+    .teklif {
+        padding: 75px 5%;
+    }
+
+    .teklif h2 {
+        font-size: 34px;
+    }
+
+    .teklif > p:not(.ust-yazi) {
+        font-size: 16px;
+    }
+
+}.animasyon {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.animasyon.gorunur {
+    opacity: 1;
+    transform: translateY(0);
+}.logo img {
+    width: 150px;
+    height: auto;
+    display: block;
+}.logo {
+    margin-left: -25px;
+}
