@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -9,57 +11,140 @@ html {
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', Arial, sans-serif;
     color: #222;
     background: #ffffff;
     line-height: 1.6;
 }
 
+
 /* =========================
-NAVBAR
+   HEADER / NAVBAR
 ========================= */
 
 header {
-    height: 78px;
+    height: 82px;
     position: sticky;
-top: 0;
-z-index: 1000;                                                                      
+    top: 0;
+    z-index: 1000;
     padding: 0 7%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.98);
     border-bottom: 1px solid #eeeeee;
-    
-    top: 0;
-    z-index: 1000;
+    box-shadow: 0 5px 22px rgba(0, 0, 0, 0.055);
 }
 
 .logo {
     font-size: 21px;
     font-weight: 800;
     letter-spacing: 0.5px;
+    margin-left: -25px;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+    display: block;
 }
 
 nav {
     display: flex;
-    gap: 32px;
+    align-items: center;
+    gap: 8px;
+    height: 100%;
 }
 
 nav a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 16px;
     text-decoration: none;
-    color: #222;
-    font-size: 15px;
-    font-weight: 600;
-    transition: 0.3s;
+    color: #252525;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    transition:
+        color 0.3s ease,
+        background 0.3s ease;
+}
+
+nav a::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background: #d99b00;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(217, 155, 0, 0.06);
+    border-radius: 8px;
+    transform: translate(-50%, -50%);
+    transition:
+        width 0.3s ease,
+        height 0.3s ease;
+    z-index: -1;
 }
 
 nav a:hover {
-    color: #d99b00;
+    color: #b47e00;
 }
 
+nav a:hover::before {
+    width: 70%;
+}
+
+nav a:hover::after {
+    width: 100%;
+    height: 46px;
+}
+
+
+/* TEKLİF AL BUTONU */
+
+nav a.nav-teklif {
+    height: 44px;
+    padding: 0 21px;
+    margin-left: 8px;
+    color: #ffffff;
+    background: #d99b00;
+    border-radius: 7px;
+    box-shadow: 0 5px 14px rgba(217, 155, 0, 0.20);
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+nav a.nav-teklif::before,
+nav a.nav-teklif::after {
+    display: none;
+}
+
+nav a.nav-teklif:hover {
+    color: #ffffff;
+    background: #b98100;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(217, 155, 0, 0.28);
+}
+
+
 /* =========================
-ANA SAYFA
+   ANA SAYFA
 ========================= */
 
 .hero {
@@ -67,7 +152,16 @@ ANA SAYFA
     display: flex;
     align-items: center;
     padding: 90px 7%;
-    background-image: url("images/arka-plan.png.png");
+    position: relative;
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(10, 10, 10, 0.78) 0%,
+            rgba(10, 10, 10, 0.62) 35%,
+            rgba(10, 10, 10, 0.30) 65%,
+            rgba(10, 10, 10, 0.05) 100%
+        ),
+        url("images/arka-plan.png.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -80,31 +174,33 @@ ANA SAYFA
 }
 
 .ust-yazi {
-    color: #d99b00;
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 2.5px;
-    margin-bottom: 18px;
+    color: #f0b323;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    line-height: 1.4;
+    margin-bottom: 17px;
+    text-transform: uppercase;
 }
 
 .hero h1 {
     color: #ffffff;
     font-size: 64px;
-    line-height: 1.08;
-    margin-bottom: 25px;
-    letter-spacing: -1.5px;
+    font-weight: 800;
+    line-height: 1.04;
+    letter-spacing: -2.2px;
+    max-width: 720px;
+    margin-bottom: 18px;
 }
 
 .aciklama {
-    font-size: 19px;
-    color: #ffffff;
-    max-width: 620px;
-    margin-bottom: 35px;
+    color: rgba(255, 255, 255, 0.90);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.7;
+    max-width: 580px;
+    margin-bottom: 34px;
 }
-
-/* =========================
-BUTON
-========================= */
 
 .buton {
     display: inline-block;
@@ -122,13 +218,15 @@ BUTON
     transform: translateY(-2px);
 }
 
+
 /* =========================
-HİZMETLER
+   HİZMETLER
 ========================= */
 
 .hizmetler {
     padding: 110px 7%;
     text-align: center;
+    background: #ffffff;
 }
 
 .hizmetler h2,
@@ -148,47 +246,119 @@ HİZMETLER
 }
 
 .kart {
-    padding: 35px 28px;
-    background: #f7f7f7;
-    border: 1px solid #eeeeee;
-    border-radius: 10px;
+    position: relative;
+    padding: 42px 30px 36px;
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
+    border-radius: 14px;
     text-align: left;
-    transition: 0.3s;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+    overflow: hidden;
+}
+
+.kart::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #d99b00;
+}
+
+.kart::after {
+    content: "";
+    position: absolute;
+    right: 20px;
+    bottom: -28px;
+    font-size: 100px;
+    font-weight: 800;
+    line-height: 1;
+    color: rgba(217, 155, 0, 0.055);
+    pointer-events: none;
+}
+
+.kart:nth-child(1)::after {
+    content: "01";
+}
+
+.kart:nth-child(2)::after {
+    content: "02";
+}
+
+.kart:nth-child(3)::after {
+    content: "03";
+}
+
+.kart:nth-child(4)::after {
+    content: "04";
 }
 
 .kart:hover {
-    transform: translateY(-5px);
-    border-color: #d99b00;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    transform: translateY(-7px);
+    border-color: #dddddd;
+    background: #fffdfa;
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.09);
 }
 
 .kart h3 {
-    font-size: 22px;
-    margin-bottom: 15px;
+    position: relative;
+    z-index: 2;
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: #222;
+}
+
+.kart h3::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 2px;
+    margin-top: 10px;
+    background: #d99b00;
+    transition: width 0.3s ease;
+}
+
+.kart:hover h3::after {
+    width: 48px;
 }
 
 .kart p {
+    position: relative;
+    z-index: 2;
     color: #666;
     font-size: 15px;
+    line-height: 1.7;
 }
 
 .hizmet-aciklama {
     max-width: 900px;
-    margin: 45px auto 55px;
+    margin: 48px auto 55px;
+    padding-top: 28px;
+    border-top: 1px solid #e5e5e5;
     text-align: center;
 }
 
-
 .hizmet-aciklama p {
-    color: #222;
-    font-family: Arial, sans-serif;
-    font-size: 18px;
-    line-height: 1.7;
-    margin-bottom: 12px;
+    color: #555;
+    font-size: 16px;
+    line-height: 1.75;
+    margin-bottom: 13px;
 }
 
+.hizmet-aciklama p:last-child {
+    margin-bottom: 0;
+}
+
+
 /* =========================
-İŞLERİMİZ
+   İŞLERİMİZ
 ========================= */
 
 .islerimiz {
@@ -201,300 +371,371 @@ HİZMETLER
     color: #666;
 }
 
-/* =========================
-FOTOĞRAF GALERİSİ
-========================= */
-
 .galeri {
     max-width: 1200px;
-    margin: 50px auto 0;
+    margin: 55px auto 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 42px 24px;
+}
+
+.proje {
+    min-width: 0;
+    text-align: center;
 }
 
 .galeri img {
     width: 100%;
     height: 300px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 12px;
     display: block;
-    transition: 0.3s;
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
     cursor: pointer;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
 }
 
 .galeri img:hover {
-    transform: scale(1.03);
+    transform: scale(1.025);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.14);
 }
 
+.proje-bilgi {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+    padding: 16px 5px 4px;
+    text-align: left;
+}
+
+.proje-bilgi strong {
+    display: block;
+    color: #222;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 3px;
+}
+
+.proje-bilgi span {
+    display: block;
+    color: #444;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 8px;
+}
+
+.proje-bilgi p {
+    display: block;
+    max-width: 380px;
+    margin: 0;
+    color: #555;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.55;
+}
+
+
 /* =========================
-İLETİŞİM
+   İLETİŞİM
 ========================= */
 
 .iletisim {
+    position: relative;
     padding: 110px 7%;
     text-align: center;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.iletisim::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 7%;
+    width: 150px;
+    height: 150px;
+    border-right: 1px solid rgba(217, 155, 0, 0.15);
+    border-top: 1px solid rgba(217, 155, 0, 0.15);
+    transform: skew(-18deg);
+    pointer-events: none;
+}
+
+.iletisim::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 7%;
+    width: 110px;
+    height: 110px;
+    border-left: 1px solid rgba(217, 155, 0, 0.12);
+    border-bottom: 1px solid rgba(217, 155, 0, 0.12);
+    transform: skew(-18deg);
+    pointer-events: none;
+}
+
+.iletisim > .ust-yazi,
+.iletisim > h2,
+.iletisim > p,
+.iletisim-bilgileri,
+.iletisim > .buton {
+    position: relative;
+    z-index: 2;
+}
+
+.iletisim h2 {
+    margin-bottom: 22px;
+}
+
+.iletisim h2::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 3px;
+    margin: 18px auto 0;
+    background: #d99b00;
 }
 
 .iletisim > p {
     max-width: 650px;
-    margin: 0 auto 35px;
+    margin: 0 auto 42px;
     color: #666;
+    font-size: 16px;
+    line-height: 1.75;
 }
 
 .iletisim-bilgileri {
-    max-width: 800px;
-    margin: 0 auto 40px;
+    max-width: 900px;
+    margin: 0 auto 38px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 18px;
 }
 
 .iletisim-bilgileri p {
+    position: relative;
     margin: 0;
-    padding: 25px;
-    background: #f7f7f7;
-    border-radius: 8px;
+    padding: 27px 30px;
+    background: #faf9f6;
+    border: 1px solid #e8e5de;
+    border-radius: 10px;
     color: #555;
+    text-align: left;
+    overflow: hidden;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.iletisim-bilgileri p::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: #d99b00;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease;
+}
+
+.iletisim-bilgileri p:hover {
+    transform: translateY(-4px);
+    background: #ffffff;
+    border-color: #dedbd3;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.07);
+}
+
+.iletisim-bilgileri p:hover::before {
+    transform: scaleY(1);
 }
 
 .iletisim-bilgileri strong {
     display: block;
     color: #222;
-    margin-bottom: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 7px;
 }
 
 .iletisim-bilgileri a {
-    color: #d99b00;
+    color: #c58d00;
     text-decoration: none;
     font-weight: 600;
+    transition: color 0.3s ease;
 }
 
+.iletisim-bilgileri a:hover {
+    color: #a87500;
+}
+
+.iletisim > .buton {
+    margin-top: 4px;
+}
+
+
 /* =========================
-FOOTER
+   NEDEN GÜNEŞ YAPI
 ========================= */
 
-footer {
-    padding: 30px;
+.neden-biz {
+    position: relative;
+    padding: 105px 7%;
     text-align: center;
-    background: #222;
-    color: #ffffff;
+    background: #f8f7f3;
+    overflow: hidden;
 }
 
-footer p {
-    font-size: 14px;
-}
-
-/* =========================
-FOTOĞRAF BÜYÜTME
-========================= */
-
-.foto-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.9);
-    z-index: 99999;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.foto-modal .buyuk-foto {
-    max-width: 55vw;
-    max-height: 55vh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    border-radius: 8px;
-}
-
-.foto-kapat {
+.neden-biz::before {
+    content: "";
     position: absolute;
-    top: 20px;
-    right: 35px;
-    color: #ffffff;
-    font-size: 45px;
-    font-weight: 300;
-    cursor: pointer;
-    z-index: 100000;
+    top: 0;
+    right: 8%;
+    width: 180px;
+    height: 180px;
+    border-right: 1px solid rgba(217, 155, 0, 0.18);
+    border-top: 1px solid rgba(217, 155, 0, 0.18);
+    transform: skew(-18deg);
 }
 
-/* =========================
-TELEFON / TABLET
-========================= */
-
-@media (max-width: 1000px) {
-
-    .hizmet-kartlari {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .hero h1 {
-        font-size: 54px;
-    }
+.neden-biz::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 8%;
+    width: 140px;
+    height: 140px;
+    border-left: 1px solid rgba(217, 155, 0, 0.16);
+    border-bottom: 1px solid rgba(217, 155, 0, 0.16);
+    transform: skew(-18deg);
 }
 
-@media (max-width: 768px) {
-
-    header {
-        height: auto;
-        min-height: 70px;
-        padding: 18px 5%;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .logo {
-        font-size: 19px;
-    }
-
-    nav {
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    nav a {
-        font-size: 13px;
-    }
-
-    .hero {
-        padding: 80px 5%;
-        min-height: 550px;
-    }
-
-    .hero h1 {
-        font-size: 42px;
-    }
-
-    .aciklama {
-        font-size: 17px;
-    }
-
-    .hizmetler,
-    .islerimiz,
-    .iletisim {
-        padding: 80px 5%;
-    }
-
-    .hizmetler h2,
-    .islerimiz h2,
-    .iletisim h2 {
-        font-size: 36px;
-    }
-
-    .hizmet-kartlari {
-        grid-template-columns: 1fr;
-    }
-
-    .iletisim-bilgileri {
-        grid-template-columns: 1fr;
-    }
-
-    .galeri {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-
-    .galeri img {
-        height: 250px;
-    }
-}
-
-@media (max-width: 480px) {
-
-    .hero h1 {
-        font-size: 36px;
-    }
-
-    .ust-yazi {
-        font-size: 11px;
-        letter-spacing: 2px;
-    }
-
-    .buton {
-        width: 100%;
-        text-align: center;
-    }
-}.foto-modal img#buyuk-foto {
-    width: auto !important;
-    height: auto !important;
-    max-width: 75vw !important;
-    max-height: 75vh !important;
-    object-fit: contain !important;
-}.neden-biz {
-    padding: 100px 7%;
-    text-align: center;
-    background: #f5f5f5;
+.neden-biz > .ust-yazi,
+.neden-biz > h2,
+.neden-kartlari {
+    position: relative;
+    z-index: 2;
 }
 
 .neden-biz h2 {
     font-size: 44px;
     line-height: 1.2;
-    margin-bottom: 55px;
+    margin-bottom: 60px;
+}
+
+.neden-biz h2::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 3px;
+    margin: 18px auto 0;
+    background: #d99b00;
 }
 
 .neden-kartlari {
-    max-width: 1000px;
+    max-width: 1050px;
     margin: auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0;
     text-align: left;
+    border-top: 1px solid #dcd8ce;
+    border-left: 1px solid #dcd8ce;
 }
 
 .neden-kart {
-    padding: 30px 35px;
-    border-bottom: 1px solid #dddddd;
+    position: relative;
+    min-height: 205px;
+    padding: 34px 38px 34px 48px;
+    background: transparent;
+    border-right: 1px solid #dcd8ce;
+    border-bottom: 1px solid #dcd8ce;
+    overflow: hidden;
+    transition:
+        background 0.3s ease,
+        padding-left 0.3s ease;
 }
 
-.neden-kart:nth-child(odd) {
-    border-right: 1px solid #dddddd;
+.neden-kart::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: #d99b00;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease;
+}
+
+.neden-kart::after {
+    content: "";
+    position: absolute;
+    right: 25px;
+    bottom: -20px;
+    font-size: 105px;
+    font-weight: 800;
+    line-height: 1;
+    color: rgba(217, 155, 0, 0.055);
+}
+
+.neden-kart:nth-child(1)::after {
+    content: "01";
+}
+
+.neden-kart:nth-child(2)::after {
+    content: "02";
+}
+
+.neden-kart:nth-child(3)::after {
+    content: "03";
+}
+
+.neden-kart:nth-child(4)::after {
+    content: "04";
+}
+
+.neden-kart:hover {
+    background: rgba(255, 255, 255, 0.62);
+    padding-left: 55px;
+}
+
+.neden-kart:hover::before {
+    transform: scaleY(1);
 }
 
 .neden-kart h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 11px;
     color: #222;
 }
 
 .neden-kart p {
-    font-size: 17px;
+    position: relative;
+    z-index: 2;
+    max-width: 430px;
+    font-size: 15px;
     color: #666;
-    line-height: 1.7;
+    line-height: 1.75;
 }
 
-/* MOBİL */
 
-@media (max-width: 768px) {
+/* =========================
+   ÇALIŞTIĞIMIZ ALANLAR
+========================= */
 
-    .neden-biz {
-        padding: 80px 5%;
-    }
-
-    .neden-biz h2 {
-        font-size: 36px;
-        margin-bottom: 35px;
-    }
-
-    .neden-kartlari {
-        grid-template-columns: 1fr;
-    }
-
-    .neden-kart {
-        padding: 25px 10px;
-        border-right: none !important;
-    }
-
-    .neden-kart:last-child {
-        border-bottom: none;
-    }
-}.alanlar {
-    padding: 100px 7%;
+.alanlar {
+    position: relative;
+    padding: 95px 7% 100px;
     text-align: center;
     background: #ffffff;
 }
@@ -502,58 +743,69 @@ TELEFON / TABLET
 .alanlar h2 {
     font-size: 44px;
     line-height: 1.2;
-    margin-bottom: 55px;
+    margin-bottom: 52px;
 }
 
 .alan-listesi {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    column-gap: 70px;
+    row-gap: 0;
     text-align: left;
+    border-top: 1px solid #dedede;
 }
 
 .alan {
-    padding: 28px 35px;
-    border-bottom: 1px solid #dddddd;
+    position: relative;
+    min-height: 112px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 25px 8px;
+    border-bottom: 1px solid #dedede;
+    transition:
+        background 0.3s ease,
+        padding-left 0.3s ease;
 }
 
-.alan:nth-child(odd) {
-    border-right: 1px solid #dddddd;
+.alan:nth-child(5) {
+    grid-column: 1 / -1;
+    width: calc(50% - 35px);
+}
+
+.alan::before {
+    content: "";
+    flex: 0 0 3px;
+    width: 3px;
+    height: 32px;
+    background: #d99b00;
+    transition: height 0.3s ease;
 }
 
 .alan h3 {
-    font-size: 21px;
+    font-size: 20px;
     color: #222;
-    font-weight: 600;
+    font-weight: 700;
+    line-height: 1.3;
 }
 
-/* MOBİL */
+.alan:hover {
+    background: #fffaf0;
+    padding-left: 18px;
+}
 
-@media (max-width: 768px) {
+.alan:hover::before {
+    height: 48px;
+}
 
-    .alanlar {
-        padding: 80px 5%;
-    }
 
-    .alanlar h2 {
-        font-size: 36px;
-        margin-bottom: 35px;
-    }
+/* =========================
+   WHATSAPP
+========================= */
 
-    .alan-listesi {
-        grid-template-columns: 1fr;
-    }
-
-    .alan {
-        padding: 25px 10px;
-        border-right: none !important;
-    }
-
-    .alan:last-child {
-        border-bottom: none;
-    }
-}.whatsapp-sabit {
+.whatsapp-sabit {
     position: fixed;
     right: 25px;
     bottom: 25px;
@@ -574,18 +826,12 @@ TELEFON / TABLET
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
 }
 
-/* MOBİL */
 
-@media (max-width: 768px) {
+/* =========================
+   TEKLİF
+========================= */
 
-    .whatsapp-sabit {
-        right: 15px;
-        bottom: 15px;
-        padding: 12px 18px;
-        font-size: 14px;
-    }
-
-}.teklif {
+.teklif {
     padding: 90px 7%;
     text-align: center;
     background: #222;
@@ -614,9 +860,416 @@ TELEFON / TABLET
     margin-top: 5px;
 }
 
-/* MOBİL */
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 30px;
+    text-align: center;
+    background: #222;
+    color: #ffffff;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+
+/* =========================
+   FOTOĞRAF BÜYÜTME
+========================= */
+
+.foto-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 99999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.foto-modal .buyuk-foto {
+    max-width: 55vw;
+    max-height: 55vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.foto-modal img#buyuk-foto {
+    width: auto !important;
+    height: auto !important;
+    max-width: 75vw !important;
+    max-height: 75vh !important;
+    object-fit: contain !important;
+}
+
+.foto-kapat {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #ffffff;
+    font-size: 45px;
+    font-weight: 300;
+    cursor: pointer;
+    z-index: 100000;
+}
+
+
+/* =========================
+   ANİMASYON
+========================= */
+
+.animasyon {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.animasyon.gorunur {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1000px) {
+
+    .hizmet-kartlari {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero h1 {
+        font-size: 54px;
+    }
+
+    .alan-listesi {
+        column-gap: 35px;
+    }
+
+    .alan:nth-child(5) {
+        width: calc(50% - 17.5px);
+    }
+}
+
+
+/* =========================
+   MOBİL
+========================= */
 
 @media (max-width: 768px) {
+
+    header {
+        height: auto;
+        min-height: 70px;
+        padding: 18px 5%;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 19px;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .logo img {
+        width: 140px;
+    }
+
+    nav {
+        gap: 5px;
+        flex-wrap: wrap;
+        justify-content: center;
+        height: auto;
+    }
+
+    nav a {
+        height: auto;
+        padding: 7px 10px;
+        font-size: 13px;
+        border-radius: 6px;
+    }
+
+    nav a::before {
+        display: none;
+    }
+
+    nav a::after {
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 6px;
+    }
+
+    nav a:hover::after {
+        width: 100%;
+        height: 34px;
+    }
+
+    nav a.nav-teklif {
+        height: 36px;
+        padding: 0 14px;
+        margin-left: 3px;
+        border-radius: 6px;
+    }
+
+    nav a.nav-teklif:hover {
+        transform: translateY(-1px);
+    }
+
+    .hero {
+        padding: 80px 5%;
+        min-height: 550px;
+        background-image:
+            linear-gradient(
+                90deg,
+                rgba(10, 10, 10, 0.80) 0%,
+                rgba(10, 10, 10, 0.55) 70%,
+                rgba(10, 10, 10, 0.20) 100%
+            ),
+            url("images/arka-plan.png.png");
+        background-position: center;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+        line-height: 1.08;
+        letter-spacing: -1px;
+        margin-bottom: 16px;
+    }
+
+    .ust-yazi {
+        font-size: 11px;
+        letter-spacing: 2.5px;
+        margin-bottom: 14px;
+    }
+
+    .aciklama {
+        font-size: 17px;
+        line-height: 1.65;
+        max-width: 500px;
+        margin-bottom: 30px;
+    }
+
+    .hizmetler,
+    .islerimiz,
+    .iletisim {
+        padding: 80px 5%;
+    }
+
+    .hizmetler h2,
+    .islerimiz h2,
+    .iletisim h2 {
+        font-size: 36px;
+    }
+
+    .hizmet-kartlari {
+        grid-template-columns: 1fr;
+    }
+
+    .kart {
+        padding: 36px 27px 32px;
+    }
+
+    .kart::after {
+        font-size: 85px;
+    }
+
+    .hizmet-aciklama {
+        margin-top: 40px;
+        padding-top: 25px;
+    }
+
+    .hizmet-aciklama p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+
+    /* İLETİŞİM - MOBİL */
+
+    .iletisim {
+        padding: 80px 5%;
+    }
+
+    .iletisim::before,
+    .iletisim::after {
+        display: none;
+    }
+
+    .iletisim > p {
+        font-size: 15px;
+        line-height: 1.7;
+        margin-bottom: 35px;
+    }
+
+    .iletisim-bilgileri {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-bottom: 32px;
+    }
+
+    .iletisim-bilgileri p {
+        padding: 23px 24px;
+    }
+
+    .iletisim-bilgileri strong {
+        font-size: 15px;
+    }
+
+    .iletisim-bilgileri a {
+        font-size: 14px;
+    }
+
+    .iletisim > .buton {
+        width: auto;
+    }
+
+
+    /* GALERİ - DOKUNULMADI */
+
+    .galeri {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .galeri img {
+        height: 250px;
+    }
+
+    .proje-bilgi {
+        max-width: 430px;
+        padding: 12px 10px 0;
+    }
+
+    .proje-bilgi strong {
+        font-size: 16px;
+    }
+
+    .proje-bilgi span {
+        font-size: 13px;
+    }
+
+    .proje-bilgi p {
+        max-width: 390px;
+        font-size: 13px;
+        line-height: 1.55;
+    }
+
+
+    /* =========================
+       NEDEN GÜNEŞ YAPI - MOBİL
+    ========================= */
+
+    .neden-biz {
+        padding: 80px 5%;
+    }
+
+    .neden-biz h2 {
+        font-size: 36px;
+        margin-bottom: 40px;
+    }
+
+    .neden-biz::before,
+    .neden-biz::after {
+        display: none;
+    }
+
+    .neden-kartlari {
+        grid-template-columns: 1fr;
+    }
+
+    .neden-kart {
+        min-height: 0;
+        padding: 28px 28px 28px 35px;
+        border-right: 1px solid #dcd8ce;
+    }
+
+    .neden-kart:nth-child(2n) {
+        border-right: 1px solid #dcd8ce;
+    }
+
+    .neden-kart:nth-last-child(-n+2) {
+        border-bottom: 1px solid #dcd8ce;
+    }
+
+    .neden-kart:last-child {
+        border-bottom: 1px solid #dcd8ce;
+    }
+
+    .neden-kart h3 {
+        font-size: 21px;
+    }
+
+    .neden-kart p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+
+    /* =========================
+       ÇALIŞTIĞIMIZ ALANLAR - MOBİL
+    ========================= */
+
+    .alanlar {
+        padding: 80px 5%;
+    }
+
+    .alanlar h2 {
+        font-size: 36px;
+        margin-bottom: 38px;
+    }
+
+    .alan-listesi {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+    }
+
+    .alan {
+        min-height: 82px;
+        padding: 22px 5px;
+    }
+
+    .alan:nth-child(5) {
+        grid-column: auto;
+        width: 100%;
+    }
+
+    .alan h3 {
+        font-size: 18px;
+    }
+
+    .alan:hover {
+        padding-left: 14px;
+    }
+
+    .alan::before {
+        height: 27px;
+    }
+
+    .alan:hover::before {
+        height: 40px;
+    }
+
+    .whatsapp-sabit {
+        right: 15px;
+        bottom: 15px;
+        padding: 12px 18px;
+        font-size: 14px;
+    }
 
     .teklif {
         padding: 75px 5%;
@@ -629,20 +1282,60 @@ TELEFON / TABLET
     .teklif > p:not(.ust-yazi) {
         font-size: 16px;
     }
-
-}.animasyon {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
-.animasyon.gorunur {
-    opacity: 1;
-    transform: translateY(0);
-}.logo img {
-    width: 150px;
-    height: auto;
-    display: block;
-}.logo {
-    margin-left: -25px;
+
+/* =========================
+   KÜÇÜK TELEFON
+========================= */
+
+@media (max-width: 480px) {
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .ust-yazi {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .buton {
+        width: 100%;
+        text-align: center;
+    }
+
+    .proje-bilgi p {
+        max-width: 340px;
+    }
+
+    .neden-biz h2 {
+        font-size: 32px;
+    }
+
+    .neden-kart {
+        padding: 25px 22px 25px 30px;
+    }
+
+    .alanlar h2 {
+        font-size: 32px;
+    }
+
+    .alan h3 {
+        font-size: 17px;
+    }
+
+    nav {
+        gap: 3px;
+    }
+
+    nav a {
+        padding: 7px 8px;
+        font-size: 12px;
+    }
+
+    nav a.nav-teklif {
+        padding: 0 11px;
+        font-size: 12px;
+    }
 }
