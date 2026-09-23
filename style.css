@@ -1339,3 +1339,37 @@ footer p {
         font-size: 12px;
     }
 }
+
+/* =========================
+   MOBİL GALERİ GÖRÜNÜRLÜLÜK DÜZELTMESİ
+   ========================= */
+
+/* Mobilde animasyon scripti tetiklenmese bile
+   İşlerimiz bölümündeki proje kartları görünür kalır. */
+@media (max-width: 768px) {
+    .galeri .proje {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+
+    .galeri .proje img {
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: block !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .galeri .proje {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+
+    .galeri .proje img {
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: block !important;
+    }
+}
